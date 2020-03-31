@@ -1,0 +1,12 @@
+server:
+  port: 11200
+
+spring:
+  application:
+    name: logistics-application
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://172.16.1.160:8848/
