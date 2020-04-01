@@ -26,5 +26,17 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+
+        <!--OpenFeign Start -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!--Model Start -->
+        <dependency>
+            <groupId>com.logistics.cloud</groupId>
+            <artifactId>logistics-common</artifactId>
+        </dependency>
     </dependencies>
 </project>

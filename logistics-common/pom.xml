@@ -10,37 +10,16 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>logistics-server</artifactId>
+    <groupId>com.logistics.cloud</groupId>
+    <artifactId>logistics-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>logistics-user-server</module>
-    </modules>
+    <packaging>jar</packaging>
 
     <dependencies>
-        <!--Spring Boot start -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!-- Spring Cloud Nacos Service Discovery -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
         <!--OpenFeign Start -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <!--Model Start -->
-        <dependency>
-            <groupId>com.logistics.cloud</groupId>
-            <artifactId>logistics-common</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -11,10 +11,13 @@
 
     <properties>
         <alibaba-dependencies.version>2.2.0.RELEASE</alibaba-dependencies.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <logistics-common.version>0.0.1-SNAPSHOT</logistics-common.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--Spring Cloud Alibaba Start -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -22,6 +25,23 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- Spring Cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--Model Start -->
+            <dependency>
+                <groupId>com.logistics.cloud</groupId>
+                <artifactId>logistics-common</artifactId>
+                <version>${logistics-common.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+
 </project>
