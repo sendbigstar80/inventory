@@ -33,6 +33,12 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
+        <!--Sleuth AND ZipKin Start -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
         <!--Model Start -->
         <dependency>
             <groupId>com.logistics.cloud</groupId>
