@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @FeignClient(value = ServerAddress.USER_SERVER)
 public interface UserFeign {
 
-    @PostMapping(value = UserServerRoute.QUERY_USER)
+    @PostMapping(value = "/user/query/object")
     String queryUser();
 
 }
