@@ -10,22 +10,19 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.logistics.cloud</groupId>
-    <artifactId>logistics-common</artifactId>
+    <artifactId>logistics-domain</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>log-domain</module>
+    </modules>
 
     <dependencies>
-        <!--OpenFeign Start -->
+        <!--Mybatis Plus Start -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <!--Model Start -->
-        <dependency>
-            <groupId>com.logistics.cloud</groupId>
-            <artifactId>log-domain</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

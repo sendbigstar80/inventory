@@ -16,6 +16,7 @@
 
     <modules>
         <module>logistics-user-server</module>
+        <module>logistics-log-server</module>
     </modules>
 
     <dependencies>
@@ -41,6 +42,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
+        <!--Mysql-Connector Start -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <!--Model Start -->

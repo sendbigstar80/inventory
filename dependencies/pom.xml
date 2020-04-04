@@ -10,9 +10,13 @@
     <packaging>pom</packaging>
 
     <properties>
+        <fastjson.version>1.2.60</fastjson.version>
+        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
+        <mybatis-plus-boot-starter.version>3.3.1.tmp</mybatis-plus-boot-starter.version>
         <alibaba-dependencies.version>2.2.0.RELEASE</alibaba-dependencies.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <logistics-common.version>0.0.1-SNAPSHOT</logistics-common.version>
+        <log-domain.version>0.0.1-SNAPSHOT</log-domain.version>
     </properties>
 
     <dependencyManagement>
@@ -34,11 +38,37 @@
                 <scope>import</scope>
             </dependency>
 
+            <!--JSON Start -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!--Mybatis Plus Start -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+
+            <!--Mysql-Connector Start -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
             <!--Model Start -->
             <dependency>
                 <groupId>com.logistics.cloud</groupId>
                 <artifactId>logistics-common</artifactId>
                 <version>${logistics-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.logistics.cloud</groupId>
+                <artifactId>log-domain</artifactId>
+                <version>${log-domain.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.logistics.cloud.mapper.InterfaceLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.logistics.cloud.domain.InterfaceLog">
+        <id column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="log_level" property="logLevel" />
+        <result column="method" property="method" />
+        <result column="args" property="args" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="log_describe" property="logDescribe" />
+        <result column="operation_type" property="operationType" />
+        <result column="run_time" property="runTime" />
+        <result column="return_value" property="returnValue" />
+        <result column="system_version" property="systemVersion" />
+        <result column="request_ip" property="requestIp" />
+        <result column="request_port" property="requestPort" />
+        <result column="local_addr" property="localAddr" />
+        <result column="local_port" property="localPort" />
+        <result column="request_scheme" property="requestScheme" />
+        <result column="server_name" property="serverName" />
+        <result column="trace_id" property="traceId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_time, log_level, method, args, user_id, user_name, log_describe, operation_type, run_time, return_value, system_version, request_ip, request_port, local_addr, local_port, request_scheme, server_name, trace_id
+    </sql>
+
+</mapper>
