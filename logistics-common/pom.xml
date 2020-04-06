@@ -22,6 +22,12 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
+        <!--HTTP-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+
         <!--Model Start -->
         <dependency>
             <groupId>com.logistics.cloud</groupId>

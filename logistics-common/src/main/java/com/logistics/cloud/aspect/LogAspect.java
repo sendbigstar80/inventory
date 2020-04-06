@@ -3,6 +3,9 @@ package com.logistics.cloud.aspect;
 import com.alibaba.fastjson.JSON;
 import com.logistics.cloud.annotation.OperationLogDetail;
 import com.logistics.cloud.aspect.model.OperationLogModel;
+import com.logistics.cloud.feign.log.LogFeign;
+import com.logistics.cloud.response.JsonResponse;
+import com.logistics.cloud.tools.RequestInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -10,7 +13,11 @@ import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -28,6 +35,8 @@ import java.util.Map;
 public class LogAspect {
 
     private final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    @Resource
+    private LogFeign logFeign;
 
     /**
      * 此处的切点是注解的方式，也可以使用包名的方式达到相同的效果
@@ -62,7 +71,17 @@ public class LogAspect {
 
     private void addOperationLogModel(ProceedingJoinPoint joinPoint, Object obj, long time) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
         OperationLogModel model = new OperationLogModel();
+        //设置client的ip
+        model.setRequestIp(RequestInfo.getRequestInfo(request));
+        //设置client的port
+        model.setRequestPort(request.getRemotePort() + "");
+        //设置协议
+        model.setRequestScheme(request.getScheme());
+        //设置client请求路径
+        model.setRequestUrl(request.getScheme() + "://" + request.getLocalName() + ":" + request.getLocalPort() + request.getRequestURI());
         //设置运行时间
         model.setRunTime(time);
         //设置返回值
@@ -92,6 +111,10 @@ public class LogAspect {
             model.setLogDescribe(getDetail(((MethodSignature) joinPoint.getSignature()).getParameterNames(), joinPoint.getArgs(), annotation));
         }
         System.out.println("记录日志：" + JSON.toJSONString(model));
+        JsonResponse jsonResponse = logFeign.insertObject(model);
+        if (!"200".equals(jsonResponse.getCode())){
+            log.info("日志保存失败：" + JSON.toJSONString(model));
+        }
     }
 
     /**
@@ -126,13 +149,14 @@ public class LogAspect {
 
 
     @Before("operationLogModel()")
-    public void doBeforeAdvice(JoinPoint joinPoint){
+    public void doBeforeAdvice(JoinPoint joinPoint) {
         System.out.println("进入方法前执行.....");
 
     }
 
     /**
      * 处理完请求，返回内容
+     *
      * @param ret
      */
     @AfterReturning(returning = "ret", pointcut = "operationLogModel()")
@@ -144,7 +168,7 @@ public class LogAspect {
      * 后置异常通知
      */
     @AfterThrowing("operationLogModel()")
-    public void throwss(JoinPoint jp){
+    public void throwss(JoinPoint jp) {
         System.out.println("方法异常时执行.....");
     }
 
@@ -153,7 +177,7 @@ public class LogAspect {
      * 后置最终通知,final增强，不管是抛出异常或者正常退出都会执行
      */
     @After("operationLogModel()")
-    public void after(JoinPoint jp){
+    public void after(JoinPoint jp) {
         System.out.println("方法最后执行.....");
     }
 }

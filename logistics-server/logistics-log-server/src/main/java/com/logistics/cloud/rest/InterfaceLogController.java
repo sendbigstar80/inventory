@@ -1,10 +1,10 @@
 package com.logistics.cloud.rest;
 
 
-import com.logistics.cloud.domain.InterfaceLog;
+import com.logistics.cloud.aspect.model.OperationLogModel;
+import com.logistics.cloud.response.JsonResponse;
 import com.logistics.cloud.service.IInterfaceLogService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.MDC;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +29,7 @@ public class InterfaceLogController {
     private IInterfaceLogService logService;
 
     @PostMapping("/insert/object")
-    public boolean insertObject(@RequestBody InterfaceLog interfaceLog){
-        log.info("logistics-log-server: " + MDC.get("X-B3-TraceId"));
-//        return logService.save(interfaceLog);
-        return false;
+    public JsonResponse insertObject(@RequestBody OperationLogModel model){
+        return logService.insertObject(model);
     }
 }

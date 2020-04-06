@@ -32,7 +32,7 @@ public class InterfaceLog implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime createTime;
+    private String createTime;
 
     /**
      * 日志等级
@@ -80,9 +80,9 @@ public class InterfaceLog implements Serializable {
     private String returnValue;
 
     /**
-     * 客户端系统版本
+     * 客户端请求地址
      */
-    private String systemVersion;
+    private String requestUrl;
 
     /**
      * 客户端请求ip
@@ -95,29 +95,14 @@ public class InterfaceLog implements Serializable {
     private String requestPort;
 
     /**
-     * 服务器IP
-     */
-    private String localAddr;
-
-    /**
-     * 服务器ip
-     */
-    private String localPort;
-
-    /**
      * 网络协议
      */
     private String requestScheme;
 
     /**
-     * 服务名字
+     * 线程id
      */
-    private String serverName;
-
-    /**
-     * 任务id
-     */
-    private Integer traceId;
+    private String traceId;
 
     /**
      * 操作人身份

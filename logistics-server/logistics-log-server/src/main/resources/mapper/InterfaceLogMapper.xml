@@ -15,19 +15,17 @@
         <result column="operation_type" property="operationType" />
         <result column="run_time" property="runTime" />
         <result column="return_value" property="returnValue" />
-        <result column="system_version" property="systemVersion" />
+        <result column="request_url" property="requestUrl" />
         <result column="request_ip" property="requestIp" />
         <result column="request_port" property="requestPort" />
-        <result column="local_addr" property="localAddr" />
-        <result column="local_port" property="localPort" />
         <result column="request_scheme" property="requestScheme" />
-        <result column="server_name" property="serverName" />
         <result column="trace_id" property="traceId" />
+        <result column="operation_status" property="operationStatus" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, create_time, log_level, method, args, user_id, user_name, log_describe, operation_type, run_time, return_value, system_version, request_ip, request_port, local_addr, local_port, request_scheme, server_name, trace_id
+        id, create_time, log_level, method, args, user_id, user_name, log_describe, operation_type, run_time, return_value, request_url, request_ip, request_port, request_scheme, trace_id, operation_status
     </sql>
 
 </mapper>

@@ -2,7 +2,10 @@ package com.logistics.cloud.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.logistics.cloud.aspect.model.OperationLogModel;
 import com.logistics.cloud.domain.InterfaceLog;
+import com.logistics.cloud.response.JsonResponse;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * <p>
@@ -14,4 +17,5 @@ import com.logistics.cloud.domain.InterfaceLog;
  */
 public interface IInterfaceLogService extends IService<InterfaceLog> {
 
+    JsonResponse insertObject(OperationLogModel model);
 }
