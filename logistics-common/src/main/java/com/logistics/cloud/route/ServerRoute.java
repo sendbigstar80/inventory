@@ -1,6 +1,6 @@
 package com.logistics.cloud.route;
 
-public interface UserServerRoute {
+public interface ServerRoute {
 
     /**
      * 查询用户信息

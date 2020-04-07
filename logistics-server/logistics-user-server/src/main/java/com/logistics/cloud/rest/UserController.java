@@ -2,10 +2,8 @@ package com.logistics.cloud.rest;
 
 import com.logistics.cloud.model.user.UserModel;
 import com.logistics.cloud.response.JsonResponse;
-import com.logistics.cloud.route.UserServerRoute;
 import com.logistics.cloud.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.MDC;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

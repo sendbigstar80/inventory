@@ -1,5 +1,6 @@
 package com.logistics.cloud.model.user;
 
+import com.logistics.cloud.Validator.PhoneValidator;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -12,4 +13,8 @@ public class UserModel {
 
     @NotBlank(message = "密码不能为空！")
     private String password;
+
+
+    @PhoneValidator
+    private String phone;
 }
