@@ -1,4 +1,4 @@
-package com.logistics.cloud.aspect.model;
+package com.logistics.cloud.model.log;
 
 import lombok.Data;
 import java.io.Serializable;

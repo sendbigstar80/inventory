@@ -1,7 +1,7 @@
 package com.logistics.cloud.rest;
 
 
-import com.logistics.cloud.aspect.model.OperationLogModel;
+import com.logistics.cloud.model.log.OperationLogModel;
 import com.logistics.cloud.response.JsonResponse;
 import com.logistics.cloud.service.IInterfaceLogService;
 import lombok.extern.slf4j.Slf4j;

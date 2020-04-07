@@ -2,7 +2,7 @@ package com.logistics.cloud.aspect;
 
 import com.alibaba.fastjson.JSON;
 import com.logistics.cloud.annotation.OperationLogDetail;
-import com.logistics.cloud.aspect.model.OperationLogModel;
+import com.logistics.cloud.model.log.OperationLogModel;
 import com.logistics.cloud.feign.log.LogFeign;
 import com.logistics.cloud.response.JsonResponse;
 import com.logistics.cloud.tools.RequestInfo;

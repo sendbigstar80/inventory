@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
 
     <properties>
+        <spring-webmvc.version>5.2.4.RELEASE</spring-webmvc.version>
+        <validation.version>2.2.5.RELEASE</validation.version>
         <servlet-api.version>2.4</servlet-api.version>
         <fastjson.version>1.2.60</fastjson.version>
         <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
@@ -37,6 +39,21 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!--Spring WebMvc Start -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring-webmvc.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!--Validation Start -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${validation.version}</version>
             </dependency>
 
             <!--HTTP-->

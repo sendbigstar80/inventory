@@ -2,7 +2,7 @@ package com.logistics.cloud.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.logistics.cloud.aspect.model.OperationLogModel;
+import com.logistics.cloud.model.log.OperationLogModel;
 import com.logistics.cloud.eunm.ResultCode;
 import com.logistics.cloud.mapper.InterfaceLogMapper;
 import com.logistics.cloud.response.JsonResponse;

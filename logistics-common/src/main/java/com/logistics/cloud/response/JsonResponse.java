@@ -50,6 +50,16 @@ public class JsonResponse<T> {
     }
 
     /**
+     * 失败，指定status、desc
+     */
+    public static JsonResponse fail( String desc) {
+        JsonResponse result = new JsonResponse();
+        result.setCode(ResultCode.FAIL.code());
+        result.setMessage(desc);
+        return result;
+    }
+
+    /**
      * 失败，指定ResultCode枚举
      */
     public static JsonResponse fail(ResultCode resultCode) {

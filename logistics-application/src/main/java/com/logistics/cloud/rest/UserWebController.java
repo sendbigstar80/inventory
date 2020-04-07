@@ -5,9 +5,13 @@ import com.logistics.cloud.eunm.OperationLogRank;
 import com.logistics.cloud.eunm.OperationStatus;
 import com.logistics.cloud.eunm.OperationType;
 import com.logistics.cloud.feign.user.UserFeign;
+import com.logistics.cloud.model.user.UserModel;
+import com.logistics.cloud.response.JsonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,9 +31,7 @@ public class UserWebController {
             operationLogRank = OperationLogRank.FATAL,
             operationStatus = OperationStatus.ADMIN
     )
-    public String queryUser() {
-        log.info("logistics-application: " + MDC.get("X-B3-TraceId"));
-//        return userFeign.queryUser();
-        return MDC.get("X-B3-TraceId");
+    public JsonResponse selectUserByNameAndPwd(@RequestBody @Validated UserModel userModel) {
+        return userFeign.selectUserByNameAndPwd(userModel);
     }
 }

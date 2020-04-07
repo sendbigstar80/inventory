@@ -1,20 +1,29 @@
 package com.logistics.cloud.rest;
 
+import com.logistics.cloud.model.user.UserModel;
+import com.logistics.cloud.response.JsonResponse;
 import com.logistics.cloud.route.UserServerRoute;
+import com.logistics.cloud.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping(value = "user")
+import javax.annotation.Resource;
+
+@RequestMapping
 @RestController
 @Slf4j
 public class UserController {
 
-    @PostMapping(value = "/query/object")
-    public String queryUser(){
-        log.info("logistics-user-server: " + MDC.get("X-B3-TraceId"));
-        return "admin";
+    @Resource
+    private UserService userService;
+
+    @PostMapping(value = "/user/selectUserByNameAndPwd")
+    public JsonResponse selectUserByNameAndPwd(@RequestBody @Validated UserModel userModel){
+        return userService.selectUserByNameAndPwd(userModel);
     }
 }

@@ -1,6 +1,6 @@
 package com.logistics.cloud.feign.log;
 
-import com.logistics.cloud.aspect.model.OperationLogModel;
+import com.logistics.cloud.model.log.OperationLogModel;
 import com.logistics.cloud.response.JsonResponse;
 import com.logistics.cloud.route.ServerAddress;
 import org.springframework.cloud.openfeign.FeignClient;

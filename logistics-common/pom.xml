@@ -16,6 +16,19 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <!--Spring WebMvc Start -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!--Validation Start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
         <!--OpenFeign Start -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -33,5 +46,6 @@
             <groupId>com.logistics.cloud</groupId>
             <artifactId>log-domain</artifactId>
         </dependency>
+
     </dependencies>
 </project>
