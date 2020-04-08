@@ -5,6 +5,8 @@ public enum  ResultCode {
     SUCCESS("200", "成功"),
     FAIL("500", "失败"),
 
+    UNKNOWN("-1", "未知错误"),
+
     /* 系统500错误*/
     SYSTEM_ERROR("10000", "系统异常，请稍后重试"),
 
