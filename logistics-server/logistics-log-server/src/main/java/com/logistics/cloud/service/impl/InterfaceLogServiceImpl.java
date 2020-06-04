@@ -9,7 +9,10 @@ import com.logistics.cloud.response.JsonResponse;
 import com.logistics.cloud.service.IInterfaceLogService;
 import com.logistics.cloud.domain.InterfaceLog;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -22,6 +25,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class InterfaceLogServiceImpl extends ServiceImpl<InterfaceLogMapper, InterfaceLog> implements IInterfaceLogService {
 
+    @Autowired
+    private InterfaceLogMapper interfaceLogMapper;
+
     @Override
     public JsonResponse insertObject(OperationLogModel model) {
         InterfaceLog bean = new InterfaceLog();
@@ -31,5 +37,11 @@ public class InterfaceLogServiceImpl extends ServiceImpl<InterfaceLogMapper, Int
             return JsonResponse.fail(ResultCode.FAIL);
         }
         return JsonResponse.success(flag);
+    }
+
+    @Override
+    public JsonResponse<InterfaceLog> selectAll() {
+        List<InterfaceLog> interfaceLogs = interfaceLogMapper.selectAll();
+        return JsonResponse.success(interfaceLogs);
     }
 }

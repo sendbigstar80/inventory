@@ -4,6 +4,8 @@ package com.logistics.cloud.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.logistics.cloud.domain.InterfaceLog;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -14,4 +16,5 @@ import com.logistics.cloud.domain.InterfaceLog;
  */
 public interface InterfaceLogMapper extends BaseMapper<InterfaceLog> {
 
+    List<InterfaceLog> selectAll();
 }

@@ -17,4 +17,6 @@ import com.logistics.cloud.response.JsonResponse;
 public interface IInterfaceLogService extends IService<InterfaceLog> {
 
     JsonResponse insertObject(OperationLogModel model);
+
+    JsonResponse<InterfaceLog> selectAll();
 }

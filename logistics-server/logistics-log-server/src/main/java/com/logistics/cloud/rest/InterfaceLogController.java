@@ -1,10 +1,12 @@
 package com.logistics.cloud.rest;
 
 
+import com.logistics.cloud.domain.InterfaceLog;
 import com.logistics.cloud.model.log.OperationLogModel;
 import com.logistics.cloud.response.JsonResponse;
 import com.logistics.cloud.service.IInterfaceLogService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ import javax.annotation.Resource;
  * @since 2020-04-03
  */
 @RestController
-@RequestMapping("/log")
+@RequestMapping
 @Slf4j
 public class InterfaceLogController {
 
@@ -31,5 +33,10 @@ public class InterfaceLogController {
     @PostMapping("/insert/object")
     public JsonResponse insertObject(@RequestBody OperationLogModel model){
         return logService.insertObject(model);
+    }
+
+    @GetMapping(value = "/selectAll")
+    public JsonResponse<InterfaceLog> selectAll(){
+        return logService.selectAll();
     }
 }

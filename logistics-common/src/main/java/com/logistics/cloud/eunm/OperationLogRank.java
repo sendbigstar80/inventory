@@ -1,5 +1,7 @@
 package com.logistics.cloud.eunm;
 
+
+
 public enum OperationLogRank {
 
     /**

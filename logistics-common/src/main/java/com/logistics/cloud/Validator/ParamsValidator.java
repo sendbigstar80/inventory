@@ -1,6 +1,6 @@
 package com.logistics.cloud.Validator;
 
-import com.logistics.cloud.Constants.RegularConstants;
+import com.logistics.cloud.constants.RegularConstants;
 import com.logistics.cloud.tools.RegexTools;
 
 import javax.validation.ConstraintValidator;
