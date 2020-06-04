@@ -35,8 +35,7 @@ import java.util.Map;
 public class LogAspect {
 
     private final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    @Resource
-    private LogFeign logFeign;
+
 
     /**
      * 此处的切点是注解的方式，也可以使用包名的方式达到相同的效果
@@ -110,11 +109,8 @@ public class LogAspect {
             //设置日志描述
             model.setLogDescribe(getDetail(((MethodSignature) joinPoint.getSignature()).getParameterNames(), joinPoint.getArgs(), annotation));
         }
-        System.out.println("记录日志：" + JSON.toJSONString(model));
-        JsonResponse jsonResponse = logFeign.insertObject(model);
-        if (!"200".equals(jsonResponse.getCode())){
-            log.info("日志保存失败：" + JSON.toJSONString(model));
-        }
+        log.info("记录日志：" + JSON.toJSONString(model));
+
     }
 
     /**

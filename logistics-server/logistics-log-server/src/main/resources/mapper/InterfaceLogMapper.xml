@@ -28,4 +28,7 @@
         id, create_time, log_level, method, args, user_id, user_name, log_describe, operation_type, run_time, return_value, request_url, request_ip, request_port, request_scheme, trace_id, operation_status
     </sql>
 
+    <select id="selectAll" resultType="com.logistics.cloud.domain.InterfaceLog">
+        select <include refid="Base_Column_List"></include> from interface_log
+    </select>
 </mapper>

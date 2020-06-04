@@ -1,4 +1,4 @@
-package com.logistics.cloud.Constants;
+package com.logistics.cloud.constants;
 
 import java.util.regex.Pattern;
 

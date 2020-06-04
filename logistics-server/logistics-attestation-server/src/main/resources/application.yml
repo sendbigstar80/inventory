@@ -1,0 +1,17 @@
+server:
+  port: 11500
+
+spring:
+  application:
+    name: logistics-attestation-server
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://172.16.1.160:8848/
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://172.16.1.160:9411/
