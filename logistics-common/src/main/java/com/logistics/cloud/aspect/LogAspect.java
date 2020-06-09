@@ -2,24 +2,17 @@ package com.logistics.cloud.aspect;
 
 import com.alibaba.fastjson.JSON;
 import com.logistics.cloud.annotation.OperationLogDetail;
-import com.logistics.cloud.model.log.OperationLogModel;
-import com.logistics.cloud.feign.log.LogFeign;
-import com.logistics.cloud.response.JsonResponse;
-import com.logistics.cloud.tools.RequestInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,44 +65,44 @@ public class LogAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        OperationLogModel model = new OperationLogModel();
-        //设置client的ip
-        model.setRequestIp(RequestInfo.getRequestInfo(request));
-        //设置client的port
-        model.setRequestPort(request.getRemotePort() + "");
-        //设置协议
-        model.setRequestScheme(request.getScheme());
-        //设置client请求路径
-        model.setRequestUrl(request.getScheme() + "://" + request.getLocalName() + ":" + request.getLocalPort() + request.getRequestURI());
-        //设置运行时间
-        model.setRunTime(time);
-        //设置返回值
-        model.setReturnValue(JSON.toJSONString(obj));
-        //设置请求参数
-        model.setArgs(JSON.toJSONString(joinPoint.getArgs()));
-        //设置请求时间
-        model.setCreateTime(sdf.format(new Date()));
-        //设置请求方法
-        model.setMethod(signature.getDeclaringTypeName());
-        //设置用户id
-        model.setUserId(1l);
-        //设置用户名字
-        model.setUserName("admin");
-        //traceId
-        model.setTraceId(MDC.get("X-B3-TraceId"));
-        //获取需要注解类
-        OperationLogDetail annotation = signature.getMethod().getAnnotation(OperationLogDetail.class);
-        if (null != annotation) {
-            //设置日志描述
-            model.setLogLevel(annotation.operationLogRank().getLevel());
-            //设置接口类型
-            model.setOperationType(annotation.operationType().getType());
-            //操作人身份
-            model.setOperationStatus(annotation.operationStatus().getStatus());
-            //设置日志描述
-            model.setLogDescribe(getDetail(((MethodSignature) joinPoint.getSignature()).getParameterNames(), joinPoint.getArgs(), annotation));
-        }
-        log.info("记录日志：" + JSON.toJSONString(model));
+//        OperationLogModel model = new OperationLogModel();
+//        //设置client的ip
+//        model.setRequestIp(RequestInfo.getRequestInfo(request));
+//        //设置client的port
+//        model.setRequestPort(request.getRemotePort() + "");
+//        //设置协议
+//        model.setRequestScheme(request.getScheme());
+//        //设置client请求路径
+//        model.setRequestUrl(request.getScheme() + "://" + request.getLocalName() + ":" + request.getLocalPort() + request.getRequestURI());
+//        //设置运行时间
+//        model.setRunTime(time);
+//        //设置返回值
+//        model.setReturnValue(JSON.toJSONString(obj));
+//        //设置请求参数
+//        model.setArgs(JSON.toJSONString(joinPoint.getArgs()));
+//        //设置请求时间
+//        model.setCreateTime(sdf.format(new Date()));
+//        //设置请求方法
+//        model.setMethod(signature.getDeclaringTypeName());
+//        //设置用户id
+//        model.setUserId(1l);
+//        //设置用户名字
+//        model.setUserName("admin");
+//        //traceId
+//        model.setTraceId(MDC.get("X-B3-TraceId"));
+//        //获取需要注解类
+//        OperationLogDetail annotation = signature.getMethod().getAnnotation(OperationLogDetail.class);
+//        if (null != annotation) {
+//            //设置日志描述
+//            model.setLogLevel(annotation.operationLogRank().getLevel());
+//            //设置接口类型
+//            model.setOperationType(annotation.operationType().getType());
+//            //操作人身份
+//            model.setOperationStatus(annotation.operationStatus().getStatus());
+//            //设置日志描述
+//            model.setLogDescribe(getDetail(((MethodSignature) joinPoint.getSignature()).getParameterNames(), joinPoint.getArgs(), annotation));
+//        }
+//        log.info("记录日志：" + JSON.toJSONString(model));
 
     }
 

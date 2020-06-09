@@ -16,6 +16,7 @@
 
     <modules>
         <module>log-domain</module>
+        <module>ums-domain</module>
     </modules>
 
     <dependencies>

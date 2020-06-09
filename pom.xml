@@ -21,6 +21,7 @@
         <module>logistics-server</module>
         <module>logistics-common</module>
         <module>logistics-domain</module>
+        <module>logistics-bean</module>
     </modules>
 
     <dependencyManagement>

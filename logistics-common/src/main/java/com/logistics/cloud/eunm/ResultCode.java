@@ -13,6 +13,7 @@ public enum  ResultCode {
 
     /* 参数错误：10001-19999 */
     PARAM_IS_INVALID("10001", "参数无效"),
+    QUERY_RESULt_EXCEPtION("10002","查询结果异常"),
 
 
     /* 用户错误：20001-29999*/
@@ -20,6 +21,8 @@ public enum  ResultCode {
     USER_LOGIN_FAIL("20002","账号或密码错误"),
     USER_HAS_EXIST("20003","账号已存在"),
     USER_NOT_EXIST("20004","用户不存在，请重新登录"),
+    USER_CREATE_PARAMS_NULL("20005","账号或密码不能为空"),
+    USER_NICK_NAME_NOT_NULL("20006","用户昵称不能为空"),
 
     /* 认证失败错误：30001-39999*/
     NO_TOKEN("30001","无token，请重新登录"),

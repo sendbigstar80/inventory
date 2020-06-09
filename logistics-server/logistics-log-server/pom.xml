@@ -15,9 +15,5 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>com.logistics.cloud</groupId>
-            <artifactId>log-domain</artifactId>
-        </dependency>
     </dependencies>
 </project>

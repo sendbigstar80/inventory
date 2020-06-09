@@ -1,0 +1,23 @@
+server:
+  port: 11300
+
+spring:
+  application:
+    name: logistics-ums-server
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://172.16.1.160:8848/
+  sleuth:
+    sampler:
+      probability: 1
+#  zipkin:
+#    base-url: http://172.16.1.160:9411/
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.spring.cloud.domain
+  mapper-locations: classpath:/mapper/*/*.xml

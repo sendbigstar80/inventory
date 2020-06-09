@@ -21,6 +21,7 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <logistics-common.version>0.0.1-SNAPSHOT</logistics-common.version>
         <log-domain.version>0.0.1-SNAPSHOT</log-domain.version>
+        <ums-domain.version>0.0.1-SNAPSHOT</ums-domain.version>
     </properties>
 
     <dependencyManagement>
@@ -95,12 +96,27 @@
             <dependency>
                 <groupId>com.logistics.cloud</groupId>
                 <artifactId>logistics-common</artifactId>
-                <version>${logistics-common.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.logistics.cloud</groupId>
                 <artifactId>log-domain</artifactId>
-                <version>${log-domain.version}</version>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.logistics.cloud</groupId>
+                <artifactId>ums-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.logistics.cloud</groupId>
+                <artifactId>logistics-ums-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.logistics.cloud</groupId>
+                <artifactId>logistics-bean</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

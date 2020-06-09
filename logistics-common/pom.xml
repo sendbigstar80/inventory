@@ -44,8 +44,7 @@
         <!--Model Start -->
         <dependency>
             <groupId>com.logistics.cloud</groupId>
-            <artifactId>log-domain</artifactId>
+            <artifactId>logistics-bean</artifactId>
         </dependency>
-
     </dependencies>
 </project>
