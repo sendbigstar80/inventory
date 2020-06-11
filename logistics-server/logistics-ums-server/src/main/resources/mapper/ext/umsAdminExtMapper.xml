@@ -9,6 +9,7 @@
         <result column="password" property="password"/>
         <collection property="roleList" ofType="com.logistics.cloud.domain.UmsRole">
             <result property="id" column="id"/>
+            <result property="name" column="name"/>
             <result property="adminCount" column="admin_count"/>
             <result property="description" column="description"/>
             <result property="createTime" column="create_time"/>
