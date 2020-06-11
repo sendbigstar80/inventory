@@ -35,14 +35,13 @@ public class UserRepository implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        if (CollectionUtils.isEmpty(umsRoles)){
-            return authorities;
-        }
         List<String> authoritiesNames = umsRoles.stream().map(UmsRole::getName).collect(Collectors.toList());
         log.info(JSON.toJSONString(authoritiesNames));
         authoritiesNames.forEach(name -> {
-            GrantedAuthority authority = new SimpleGrantedAuthority(prefix+name.toUpperCase());
-            authorities.add(authority);
+            if (!StringUtils.isEmpty(name)){
+                GrantedAuthority authority = new SimpleGrantedAuthority(prefix+name.toUpperCase());
+                authorities.add(authority);
+            }
         });
         return authorities;
     }
