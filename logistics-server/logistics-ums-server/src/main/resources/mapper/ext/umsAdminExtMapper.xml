@@ -9,7 +9,7 @@
         <result column="password" property="password"/>
         <collection property="roleList" ofType="com.logistics.cloud.domain.UmsRole">
             <result property="id" column="id"/>
-            <result property="name" column="name"/>
+            <result property="name" column="role_name"/>
             <result property="adminCount" column="admin_count"/>
             <result property="description" column="description"/>
             <result property="createTime" column="create_time"/>
@@ -22,7 +22,7 @@
             <result property="sort" column="sort"/>
             <result property="createTime" column="create_time"/>
             <result property="icon" column="icon"/>
-            <result property="name" column="name"/>
+            <result property="name" column="permission_name"/>
             <result property="type" column="type"/>
             <result property="uri" column="uri"/>
             <result property="value" column="value"/>
@@ -35,10 +35,10 @@
                u.password,
                u.nick_name,
                u.note,
-               r.name,
+               r.name as role_name,
                r.description,
                p.pid,
-               p.name,
+               p.name as permission_name,
                p.value,
                p.type,
                p.uri,

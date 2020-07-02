@@ -17,7 +17,6 @@
     <modules>
         <module>logistics-ums-server</module>
         <module>logistics-log-server</module>
-        <module>logistics-attestation-server</module>
     </modules>
 
     <dependencies>
@@ -45,7 +44,17 @@
 <!--            <artifactId>spring-cloud-starter-zipkin</artifactId>-->
 <!--        </dependency>-->
 
+        <!--Mysql-Connector Start -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 
+        <!--Druid Start -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
         <!--Model Start -->
         <dependency>
             <groupId>com.logistics.cloud</groupId>

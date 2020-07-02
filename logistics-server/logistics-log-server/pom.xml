@@ -15,15 +15,6 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!--Mysql-Connector Start -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!--Druid Start -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
+
     </dependencies>
 </project>

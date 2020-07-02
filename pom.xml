@@ -22,6 +22,7 @@
         <module>logistics-common</module>
         <module>logistics-domain</module>
         <module>logistics-bean</module>
+        <module>logistics-authorize</module>
     </modules>
 
     <dependencyManagement>
