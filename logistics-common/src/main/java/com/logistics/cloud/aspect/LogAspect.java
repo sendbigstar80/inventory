@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -64,7 +64,7 @@ public class LogAspect {
     private void addOperationLogModel(ProceedingJoinPoint joinPoint, Object obj, long time) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
+//        HttpServletRequest request = attributes.getRequest();
 //        OperationLogModel model = new OperationLogModel();
 //        //设置client的ip
 //        model.setRequestIp(RequestInfo.getRequestInfo(request));

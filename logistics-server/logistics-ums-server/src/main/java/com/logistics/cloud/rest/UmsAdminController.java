@@ -8,6 +8,7 @@ import com.logistics.cloud.response.JsonResponse;
 import com.logistics.cloud.service.IUmsAdminService;
 import com.logistics.cloud.vo.ums.UmsUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -32,7 +34,9 @@ import java.util.List;
 @RequestMapping
 public class UmsAdminController {
 
-    @Autowired
+//    @Autowired
+    @Resource
+    @Qualifier
     private IUmsAdminService iUmsAdminService;
 
     @PostMapping(value = "/ums/adminLogin")
